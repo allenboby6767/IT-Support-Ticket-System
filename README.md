@@ -15,7 +15,6 @@ Python, Flask, MongoDB Atlas, PyMongo, HTML/CSS, AWS EC2.
 3. Put your MongoDB Atlas URI in `MONGO_URI`.
 4. Configure Atlas Network Access.
 5. Run `python app.py`.
-6. Open `http://127.0.0.1:5000`.
 
 ## MongoDB
 The app uses `users` and `tickets` collections in the `it_support_system` database. Credentials are read from `.env`; `.env` is ignored by Git.
