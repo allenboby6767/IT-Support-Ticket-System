@@ -1,1 +1,18 @@
-{% extends 'base.html' %}{% block title %}Staff Login{% endblock %}{% block content %}<div class="auth"><section><p class="eyebrow">Support Staff Portal</p><h1>Staff login</h1><form method="post"><label>Email</label><input name="email" type="email" required><label>Password</label><input name="password" type="password" required><button>Login</button></form><p><a href="{{url_for('login')}}">Employee login</a></p></section></div>{% endblock %}
+{% extends 'base.html' %}
+{% block title %}Staff Login{% endblock %}
+{% block content %}
+<div class="auth">
+  <section>
+    <p class="eyebrow">Support Staff Portal</p>
+    <h1>Staff login</h1>
+    <form method="post">
+      <label>Email</label>
+      <input name="email" type="email" required>
+      <label>Password</label>
+      <input name="password" type="password" required>
+      <button>Login</button>
+    </form>
+    <p><a href="{{url_for('login')}}">Employee login</a></p>
+  </section>
+</div>
+{% endblock %}
