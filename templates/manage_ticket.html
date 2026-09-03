@@ -1,1 +1,26 @@
-{% extends 'base.html' %}{% block title %}Manage Ticket{% endblock %}{% block content %}<div class="narrow"><p class="eyebrow">Ticket Management</p><h1>#{{ticket._id|string|truncate(8,true,'')}}</h1><section class="panel"><p><b>Employee:</b> {{ticket.employee_name}}</p><p><b>Title:</b> {{ticket.title}}</p><p>{{ticket.description}}</p><form method="post"><label>Status</label><select name="status">{% for s in ['Open','In Progress','Resolved','Closed'] %}<option {% if ticket.status==s %}selected{% endif %}>{{s}}</option>{% endfor %}</select><label>Resolution</label><textarea name="resolution" rows="6">{{ticket.resolution or ''}}</textarea><div class="actions"><button name="action" value="update">Update Status</button><button name="action" value="add_resolution">Add Resolution</button><button class="danger" name="action" value="close">Close Ticket</button></div></form></section></div>{% endblock %}
+{% extends 'base.html' %}
+{% block title %}Manage Ticket{% endblock %}
+{% block content %}
+<div class="narrow">
+  <p class="eyebrow">Ticket Management</p>
+  <h1>#{{ticket._id|string|truncate(8,true,'')}}</h1>
+  <section class="panel">
+    <p><b>Employee:</b> {{ticket.employee_name}}</p>
+    <p><b>Title:</b> {{ticket.title}}</p>
+    <p>{{ticket.description}}</p>
+    <form method="post">
+      <label>Status</label>
+      <select name="status">{% for s in ['Open','In Progress','Resolved','Closed'] %}
+        <option {% if ticket.status==s %}selected{% endif %}>{{s}}</option>
+        {% endfor %}</select>
+      <label>Resolution</label>
+      <textarea name="resolution" rows="6">{{ticket.resolution or ''}}</textarea>
+      <div class="actions">
+        <button name="action" value="update">Update Status</button>
+        <button name="action" value="add_resolution">Add Resolution</button>
+        <button class="danger" name="action" value="close">Close Ticket</button>
+      </div>
+    </form>
+  </section>
+</div>
+{% endblock %}
