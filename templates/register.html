@@ -1,1 +1,22 @@
-{% extends 'base.html' %}{% block title %}Registration{% endblock %}{% block content %}<div class="auth"><section><p class="eyebrow">Employee Portal</p><h1>Create account</h1><form method="post"><label>Full name</label><input name="name" required><label>Email</label><input name="email" type="email" required><label>Password</label><input name="password" type="password" minlength="6" required><label>Confirm password</label><input name="confirm_password" type="password" minlength="6" required><button>Create Account</button></form><p>Already registered? <a href="{{url_for('login')}}">Login</a></p></section></div>{% endblock %}
+{% extends 'base.html' %}
+{% block title %}Registration{% endblock %}
+{% block content %}
+<div class="auth">
+  <section>
+    <p class="eyebrow">Employee Portal</p>
+    <h1>Create account</h1>
+    <form method="post">
+      <label>Full name</label>
+      <input name="name" required>
+      <label>Email</label>
+      <input name="email" type="email" required>
+      <label>Password</label>
+      <input name="password" type="password" minlength="6" required>
+      <label>Confirm password</label>
+      <input name="confirm_password" type="password" minlength="6" required>
+      <button>Create Account</button>
+    </form>
+    <p>Already registered? <a href="{{url_for('login')}}">Login</a></p>
+  </section>
+</div>
+{% endblock %}
