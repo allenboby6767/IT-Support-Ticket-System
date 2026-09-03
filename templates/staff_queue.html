@@ -1,1 +1,35 @@
-{% extends 'base.html' %}{% block title %}Staff Queue{% endblock %}{% block content %}<p class="eyebrow">Support Staff Portal</p><h1>Support Ticket Queue</h1><section class="panel">{% if tickets %}<table><tr><th>ID</th><th>Employee</th><th>Title</th><th>Priority</th><th>Status</th><th></th></tr>{% for t in tickets %}<tr><td>#{{t._id|string|truncate(8,true,'')}}</td><td>{{t.employee_name}}</td><td>{{t.title}}</td><td>{{t.priority}}</td><td>{{t.status}}</td><td><a href="{{url_for('manage_ticket',ticket_id=t._id)}}">Manage</a></td></tr>{% endfor %}</table>{% else %}<div class="empty"><h3>No tickets in queue</h3></div>{% endif %}</section>{% endblock %}
+{% extends 'base.html' %}
+{% block title %}Staff Queue{% endblock %}
+{% block content %}
+<p class="eyebrow">Support Staff Portal</p>
+<h1>Support Ticket Queue</h1>
+<section class="panel">
+  {% if tickets %}
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Employee</th>
+      <th>Title</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+    {% for t in tickets %}
+    <tr>
+      <td>#{{t._id|string|truncate(8,true,'')}}</td>
+      <td>{{t.employee_name}}</td>
+      <td>{{t.title}}</td>
+      <td>{{t.priority}}</td>
+      <td>{{t.status}}</td>
+      <td>
+        <a href="{{url_for('manage_ticket',ticket_id=t._id)}}">Manage</a>
+      </td>
+    </tr>
+    {% endfor %}</table>
+  {% else %}
+  <div class="empty">
+    <h3>No tickets in queue</h3>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}
